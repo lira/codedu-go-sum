@@ -1,0 +1,17 @@
+steps:
+  - id: "Instalando.."
+    name: "gcr.io/cloud-builders/go"
+    args: ["install", "sum"]
+    env: ["GOPATH=."]
+
+  - id: "Testando..."
+    name: "gcr.io/cloud-builders/go"
+    args: ["test", "sum"]
+    env: ["GOPATH=."]
+
+  - id: "Criando Imagem"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/codedu-go-sum:latest", "."]
+
+images:
+  - "gcr.io/$PROJECT_ID/codedu-go-sum:latest"
