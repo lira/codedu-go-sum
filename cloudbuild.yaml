@@ -2,12 +2,12 @@ steps:
   - id: "Instalando.."
     name: "gcr.io/cloud-builders/go"
     args: ["install", "sum"]
-    env: ["GOPATH=."]
+    env: ["GOPATH=/workspace"]
 
   - id: "Testando..."
     name: "gcr.io/cloud-builders/go"
     args: ["test", "sum"]
-    env: ["GOPATH=."]
+    env: ["GOPATH=/workspace"]
 
   - id: "Criando Imagem"
     name: "gcr.io/cloud-builders/docker"
